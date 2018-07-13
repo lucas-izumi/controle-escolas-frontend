@@ -1,5 +1,7 @@
-angular.module('CadastroEscolas', [
-  'ui.router',
-  'ngAnimate',
-  'toastr'
-])
+(function() {
+  angular.module('CadastroEscolas', [
+    'ui.router',
+    'ngAnimate',
+    'toastr'
+  ])
+})()
