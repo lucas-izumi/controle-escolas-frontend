@@ -3,17 +3,17 @@
 <section class="content">
   <div class="nav-tabs-custom" ng-controller="CadastroEscolasCtrl as ceCtrl">
     <ul class="nav nav-tabs">
-      <li><a href data-target="#tabList" data-toggle="tab"><i class="fa fa-bars"></i> Lista</a></li>
-      <li><a href data-target="#tabCreate" data-toggle="tab"><i class="fa fa-plus"></i> Incluir</a></li>
-      <li><a href data-target="#tabUpdate" data-toggle="tab"><i class="fa fa-pencil"></i> Alterar</a></li>
-      <li><a href data-target="#tabDelete" data-toggle="tab"><i class="fa fa-trash-o"></i> Excluir</a></li>
+      <li ng-if="ceCtrl.tabList" ng-class="{active: ceCtrl.tabList}"><a href data-target="#tabList" data-toggle="tab"><i class="fa fa-bars"></i> Lista</a></li>
+      <li ng-if="ceCtrl.tabCreate"><a href data-target="#tabCreate" data-toggle="tab"><i class="fa fa-plus"></i> Incluir</a></li>
+      <li ng-if="ceCtrl.tabUpdate" ng-class="{active: ceCtrl.tabUpdate}"><a href data-target="#tabUpdate" data-toggle="tab"><i class="fa fa-pencil"></i> Alterar</a></li>
+      <li ng-if="ceCtrl.tabDelete" ng-class="{active: ceCtrl.tabDelete}"><a href data-target="#tabDelete" data-toggle="tab"><i class="fa fa-trash-o"></i> Excluir</a></li>
     </ul>
 
     <div class="tab-content">
-      <div class="tab-pane" id="tabList" ng-include="'cadastroEscolas/list.html'"></div>
-      <div class="tab-pane" id="tabCreate" ng-include="'cadastroEscolas/form.html'"></div>
-      <div class="tab-pane" id="tabUpdate" ng-include="'cadastroEscolas/form.html'"></div>
-      <div class="tab-pane" id="tabDelete" ng-include="'cadastroEscolas/form.html'"></div>
+      <div class="tab-pane" id="tabList" ng-include="'cadastroEscolas/list.html'" ng-class="{active: ceCtrl.tabList}" ng-if="ceCtrl.tabList"></div>
+      <div class="tab-pane" id="tabCreate" ng-include="'cadastroEscolas/form.html'" ng-if="ceCtrl.tabCreate"></div>
+      <div class="tab-pane" id="tabUpdate" ng-include="'cadastroEscolas/form.html'" ng-class="{active: ceCtrl.tabUpdate}" ng-if="ceCtrl.tabUpdate"></div>
+      <div class="tab-pane" id="tabDelete" ng-include="'cadastroEscolas/form.html'" ng-class="{active: ceCtrl.tabDelete}" ng-if="ceCtrl.tabDelete"></div>
     </div>
 
   </div>

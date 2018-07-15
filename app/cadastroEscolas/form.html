@@ -4,9 +4,9 @@
     <field id="endereco" label="Endereço" grid="12 6 4" placeholder="Informe o endereço da escola" model="ceCtrl.cadastroEscolas.endereco"></field>
   </div>
   <div class="box-footer">
-    <button class="btn btn-primary" ng-click="ceCtrl.create()">Incluir</button>
-    <button class="btn btn-info">Alterar</button>
-    <button class="btn btn-danger">Excluir</button>
-    <button class="btn btn-default">Cancelar</button>
+    <button class="btn btn-primary" ng-click="ceCtrl.create()" ng-if="ceCtrl.tabCreate">Incluir</button>
+    <button class="btn btn-info" ng-if="ceCtrl.tabUpdate">Alterar</button>
+    <button class="btn btn-danger" ng-if="ceCtrl.tabDelete">Excluir</button>
+    <button class="btn btn-default" ng-click="ceCtrl.refresh()">Cancelar</button>
   </div>
 </div>
