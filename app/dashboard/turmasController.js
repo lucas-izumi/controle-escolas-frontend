@@ -78,25 +78,30 @@
     }
 
     vm.create = function(index, obj) {
-      const createUrl = `${url}/${vm.cadastroEscolas._id}`
-      vm.cadastroEscolas.turmas.splice(index, obj)
-      $http.put(createUrl, vm.cadastroEscolas).then(function(response) {
-        vm.refresh()
-        msgs.addSuccess('Operação realizada com sucesso!')
-      }).catch(function(response) {
-        msgs.addError(response.data.errors)
-      })
+        const createUrl = `${url}/${vm.cadastroEscolas._id}`
+        vm.cadastroEscolas.turmas.splice(index, obj)
+        $http.put(createUrl, vm.cadastroEscolas).then(function(response) {
+          vm.refresh()
+          msgs.addSuccess('Operação realizada com sucesso!')
+        }).catch(function(response) {
+          msgs.addError(response.data.errors)
+        })
     }
 
     vm.insert = function(index, obj, cadastroEscolas) {
-      const insertUrl = `${url}/${vm.cadastroEscolas._id}`
-      vm.cadastroEscolas.turmas[index].nomealuno.splice(0, obj)
-      $http.put(insertUrl, vm.cadastroEscolas).then(function(response) {
-        vm.refreshToAlunos(index, cadastroEscolas)
-        msgs.addSuccess('Operação realizada com sucesso!')
-      }).catch(function(response) {
-        msgs.addError(response.data.errors)
-      })
+      if (typeof obj[0] === "undefined") {
+        msgs.addError('O campo nome não pode ficar em branco!')
+      }
+      else {
+        const insertUrl = `${url}/${vm.cadastroEscolas._id}`
+        vm.cadastroEscolas.turmas[index].nomealuno.splice.apply(vm.cadastroEscolas.turmas[index].nomealuno, [0,1].concat(obj))
+        $http.put(insertUrl, vm.cadastroEscolas).then(function(response) {
+          vm.refreshToAlunos(index, cadastroEscolas)
+          msgs.addSuccess('Operação realizada com sucesso!')
+        }).catch(function(response) {
+          msgs.addError(response.data.errors)
+        })
+      }
     }
 
     vm.update = function() {
