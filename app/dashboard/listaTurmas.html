@@ -10,9 +10,9 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{ turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].nome }}</td>
-          <td>{{ turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].ensino }}</td>
-          <td>{{ turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].ano }}</td>
+          <td>{{:: turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].nome }}</td>
+          <td>{{:: turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].ensino }}</td>
+          <td>{{:: turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].ano }}</td>
         </tr>
       </tbody>
     </table>
@@ -24,7 +24,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="cadastroEscolas in turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].nomealuno">
-        <td>{{ cadastroEscolas.nome }}</td>
+        <td>{{:: cadastroEscolas.nome }}</td>
       </tr>
     </tbody>
   </table>

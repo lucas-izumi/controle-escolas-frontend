@@ -21,9 +21,9 @@
     </thead>
     <tbody>
       <tr ng-repeat="cadastroEscolas in turmasCtrl.cadastroEscolas.turmas">
-        <td>{{ cadastroEscolas.nome }}</td>
-        <td>{{ cadastroEscolas.ensino }}</td>
-        <td>{{ cadastroEscolas.ano }}</td>
+        <td>{{:: cadastroEscolas.nome }}</td>
+        <td>{{:: cadastroEscolas.ensino }}</td>
+        <td>{{:: cadastroEscolas.ano }}</td>
         <td class="table-actions">
           <button class="btn btn-primary" ng-click="turmasCtrl.showTabListaTurmas(turmasCtrl.cadastroEscolas, $index)"><i class="fa fa-eye"></i></button>
           <button class="btn btn-warning" ng-click="turmasCtrl.showTabUpdate(turmasCtrl.cadastroEscolas, $index)"><i class="fa fa-pencil"></i></button>
