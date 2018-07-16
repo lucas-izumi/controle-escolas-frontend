@@ -25,7 +25,7 @@
         <td>{{ cadastroEscolas.ensino }}</td>
         <td>{{ cadastroEscolas.ano }}</td>
         <td class="table-actions">
-          <button class="btn btn-primary" ng-click="turmasCtrl.showTabListaTurmas(turmasCtrl.cadastroEscolas)"><i class="fa fa-eye"></i></button>
+          <button class="btn btn-primary" ng-click="turmasCtrl.showTabListaTurmas(turmasCtrl.cadastroEscolas, $index)"><i class="fa fa-eye"></i></button>
           <button class="btn btn-warning" ng-click="turmasCtrl.showTabUpdate(turmasCtrl.cadastroEscolas)"><i class="fa fa-pencil"></i></button>
           <button class="btn btn-danger" ng-click="turmasCtrl.showTabDelete(turmasCtrl.cadastroEscolas)"><i class="fa fa-trash-o"></i></button>
         </td>

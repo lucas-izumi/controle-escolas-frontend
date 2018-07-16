@@ -16,6 +16,7 @@
         vm.escola = response.data
         tabs.show(vm, {tabList: true})
         turmas.display(vm, {qntTurmas: false})
+        vm.count = 0
       })
     }
 
@@ -54,10 +55,11 @@
       tabs.show(vm, {tabCreate: true})
     }
 
-    vm.showTabListaTurmas = function(cadastroEscolas) {
+    vm.showTabListaTurmas = function(cadastroEscolas, count) {
       console.log(cadastroEscolas)
       vm.cadastroEscolas = cadastroEscolas
       tabs.show(vm, {tabListaTurmas: true})
+      vm.count = count
     }
 
     vm.create = function() {
