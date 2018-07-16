@@ -12,7 +12,9 @@
     controller: [
       'gridSystem',
       function(gridSystem) {
-        this.gridClasses = gridSystem.toCssClasses(this.grid)
+        this.$onInit = function() { //executa quando todos os bindings tiverem inicializado
+            this.gridClasses = gridSystem.toCssClasses(this.grid)
+        }
       }
     ],
     template: `
