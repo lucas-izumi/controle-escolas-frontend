@@ -1,0 +1,10 @@
+<div class="form">
+  <div class="box-body">
+    <field id="nome" label="Nome" grid="12 6 4" placeholder="Informe o nome do aluno"
+    model="nomeAluno.nome" disabled="turmasCtrl.tabDelete"></field>
+  </div>
+  <div class="box-footer">
+    <button class="btn btn-primary" ng-click="turmasCtrl.insert(turmasCtrl.count, [nomeAluno], turmasCtrl.cadastroEscolas)">Incluir</button>
+    <button class="btn btn-default" ng-click="turmasCtrl.refresh()">Cancelar</button>
+  </div>
+</div>

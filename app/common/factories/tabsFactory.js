@@ -7,13 +7,15 @@
       tabCreate = false,
       tabUpdate = false,
       tabDelete = false,
-      tabListaTurmas = false
+      tabListaTurmas = false,
+      tabListaAlunos = false
     }) {
       owner.tabList = tabList
       owner.tabCreate = tabCreate
       owner.tabUpdate = tabUpdate
       owner.tabDelete = tabDelete
       owner.tabListaTurmas = tabListaTurmas
+      owner.tabListaAlunos = tabListaAlunos
     }
 
     return { show }

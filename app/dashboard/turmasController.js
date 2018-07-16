@@ -21,6 +21,16 @@
       })
     }
 
+    vm.refreshToAlunos = function(count, cadastroEscolas) {
+      $http.get(url).then(function(response) {
+        vm.cadastroEscolas = {}
+        vm.escola = response.data
+        tabs.show(vm, {tabListaTurmas: true})
+        vm.count = count
+        vm.showTabListaTurmas(cadastroEscolas, count)
+      })
+    }
+
     //pega o registro atual
     vm.showTurmas = function(cadastroEscolas) {
       if(cadastroEscolas == "")
@@ -39,38 +49,50 @@
 
     //pega o registro atual
     vm.showTabUpdate = function(cadastroEscolas, count) {
-      console.log(cadastroEscolas)
       vm.cadastroEscolas = cadastroEscolas
       tabs.show(vm, {tabUpdate: true})
       vm.count = count
     }
 
     vm.showTabDelete = function(cadastroEscolas, count) {
-      console.log(cadastroEscolas)
       vm.cadastroEscolas = cadastroEscolas
       tabs.show(vm, {tabDelete: true})
       vm.count = count
     }
 
     vm.showTabCreate = function(cadastroEscolas) {
-      console.log(cadastroEscolas)
       vm.cadastroEscolas = cadastroEscolas
       tabs.show(vm, {tabCreate: true})
     }
 
     vm.showTabListaTurmas = function(cadastroEscolas, count) {
-      console.log(cadastroEscolas)
       vm.cadastroEscolas = cadastroEscolas
       tabs.show(vm, {tabListaTurmas: true})
       vm.count = count
     }
 
+    vm.showTabListaAlunos = function(cadastroEscolas, count) {
+      vm.cadastroEscolas = cadastroEscolas
+      tabs.show(vm, {tabListaAlunos: true})
+      vm.count = count
+    }
+
     vm.create = function(index, obj) {
       const createUrl = `${url}/${vm.cadastroEscolas._id}`
-      console.log(obj)
       vm.cadastroEscolas.turmas.splice(index, obj)
       $http.put(createUrl, vm.cadastroEscolas).then(function(response) {
         vm.refresh()
+        msgs.addSuccess('Operação realizada com sucesso!')
+      }).catch(function(response) {
+        msgs.addError(response.data.errors)
+      })
+    }
+
+    vm.insert = function(index, obj, cadastroEscolas) {
+      const insertUrl = `${url}/${vm.cadastroEscolas._id}`
+      vm.cadastroEscolas.turmas[index].nomealuno.splice(0, obj)
+      $http.put(insertUrl, vm.cadastroEscolas).then(function(response) {
+        vm.refreshToAlunos(index, cadastroEscolas)
         msgs.addSuccess('Operação realizada com sucesso!')
       }).catch(function(response) {
         msgs.addError(response.data.errors)

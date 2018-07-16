@@ -8,6 +8,7 @@
       <li ng-if="turmasCtrl.tabUpdate" ng-class="{active: turmasCtrl.tabUpdate}"><a href data-target="#tabUpdate" data-toggle="tab"><i class="fa fa-pencil"></i> Alterar Turma</a></li>
       <li ng-if="turmasCtrl.tabDelete" ng-class="{active: turmasCtrl.tabDelete}"><a href data-target="#tabDelete" data-toggle="tab"><i class="fa fa-trash-o"></i> Excluir Turma</a></li>
       <li ng-if="turmasCtrl.tabListaTurmas" ng-class="{active: turmasCtrl.tabListaTurmas}"><a href data-target="#tabListaTurmas" data-toggle="tab"><i class="fa fa-eye"></i> Visualizar Turma</a></li>
+      <li ng-if="turmasCtrl.tabListaAlunos" ng-class="{active: turmasCtrl.tabListaAlunos}"><a href data-target="#tabListaAlunos" data-toggle="tab"><i class="fa fa-graduation-cap"></i> Adicionar Aluno</a></li>
     </ul>
 
     <div class="tab-content">
@@ -16,6 +17,7 @@
       <div class="tab-pane" id="tabUpdate" ng-include="'dashboard/editTurmas.html'" ng-class="{active: turmasCtrl.tabUpdate}" ng-if="turmasCtrl.tabUpdate"></div>
       <div class="tab-pane" id="tabDelete" ng-include="'dashboard/editTurmas.html'" ng-class="{active: turmasCtrl.tabDelete}" ng-if="turmasCtrl.tabDelete"></div>
       <div class="tab-pane" id="tabListaTurmas" ng-include="'dashboard/listaTurmas.html'" ng-class="{active: turmasCtrl.tabListaTurmas}" ng-if="turmasCtrl.tabListaTurmas"></div>
+      <div class="tab-pane" id="tabListaAlunos" ng-include="'dashboard/addAluno.html'" ng-class="{active: turmasCtrl.tabListaAlunos}" ng-if="turmasCtrl.tabListaAlunos"></div>
     </div>
 
   </div>
