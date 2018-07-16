@@ -1,12 +1,13 @@
 (function() {
   angular.module('CadastroEscolas').controller('TurmasCtrl', [
     '$http',
+    'msgs',
     'turmas',
     'tabs',
     TurmasController
   ])
 
-  function TurmasController($http, turmas, tabs) {
+  function TurmasController($http, msgs, turmas, tabs) {
     const vm = this
     const url = 'http://localhost:3003/api/escolas'
 
@@ -37,16 +38,18 @@
     }
 
     //pega o registro atual
-    vm.showTabUpdate = function(cadastroEscolas) {
+    vm.showTabUpdate = function(cadastroEscolas, count) {
       console.log(cadastroEscolas)
       vm.cadastroEscolas = cadastroEscolas
       tabs.show(vm, {tabUpdate: true})
+      vm.count = count
     }
 
-    vm.showTabDelete = function(cadastroEscolas) {
+    vm.showTabDelete = function(cadastroEscolas, count) {
       console.log(cadastroEscolas)
       vm.cadastroEscolas = cadastroEscolas
       tabs.show(vm, {tabDelete: true})
+      vm.count = count
     }
 
     vm.showTabCreate = function(cadastroEscolas) {
@@ -62,9 +65,11 @@
       vm.count = count
     }
 
-    vm.create = function() {
-      const updateUrl = `${url}/${vm.cadastroEscolas._id}`
-      $http.put(updateUrl, vm.cadastroEscolas).then(function(response) {
+    vm.create = function(index, obj) {
+      const createUrl = `${url}/${vm.cadastroEscolas._id}`
+      console.log(obj)
+      vm.cadastroEscolas.turmas.splice(index, obj)
+      $http.put(createUrl, vm.cadastroEscolas).then(function(response) {
         vm.refresh()
         msgs.addSuccess('Operação realizada com sucesso!')
       }).catch(function(response) {
@@ -82,8 +87,9 @@
       })
     }
 
-    vm.delete = function () {
+    vm.delete = function (index) {
       const deleteUrl = `${url}/${vm.cadastroEscolas._id}`
+      vm.cadastroEscolas.turmas.splice(index, 1)
       $http.put(deleteUrl, vm.cadastroEscolas).then(function(response) {
         vm.refresh()
         msgs.addSuccess('Operação realizada com sucesso!')

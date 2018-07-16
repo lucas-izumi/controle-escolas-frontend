@@ -1,11 +1,11 @@
 <div class="form">
   <div class="box-body">
     <field id="nome" label="Nome da Turma" grid="12 6 4" placeholder="Informe o nome da turma"
-    model="turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count+turmasCtrl.NumeroTurmas].nome" disabled="turmasCtrl.tabDelete"></field>
+    model="turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].nome" disabled="turmasCtrl.tabDelete"></field>
     <field id="ensino" label="Tipo de Ensino" grid="12 6 4" placeholder="Informe o tipo de ensino"
-    model="turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count+turmasCtrl.NumeroTurmas].ensino" disabled="turmasCtrl.tabDelete"></field>
+    model="turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].ensino" disabled="turmasCtrl.tabDelete"></field>
     <field id="ano" label="Ano da Turma" grid="12 6 4" placeholder="Informe o ano da turma"
-    model="turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count+turmasCtrl.NumeroTurmas].ano" disabled="turmasCtrl.tabDelete"></field>
+    model="turmasCtrl.cadastroEscolas.turmas[turmasCtrl.count].ano" disabled="turmasCtrl.tabDelete"></field>
   </div>
   <div class="box-footer">
     <button class="btn btn-primary" ng-click="turmasCtrl.create(turmasCtrl.count, turmasCtrl.cadastroEscolas.turmas)" ng-if="turmasCtrl.tabCreate">Incluir</button>
