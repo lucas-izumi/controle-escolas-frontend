@@ -94,7 +94,7 @@
       }
       else {
         const insertUrl = `${url}/${vm.cadastroEscolas._id}`
-        vm.cadastroEscolas.turmas[index].nomealuno.splice.apply(vm.cadastroEscolas.turmas[index].nomealuno, [0,1].concat(obj))
+        Array.prototype.push.apply(vm.cadastroEscolas.turmas[index].nomealuno, obj)
         $http.put(insertUrl, vm.cadastroEscolas).then(function(response) {
           vm.refreshToAlunos(index, cadastroEscolas)
           msgs.addSuccess('Operação realizada com sucesso!')
