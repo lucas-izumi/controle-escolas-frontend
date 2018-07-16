@@ -38,6 +38,26 @@
       tabs.show(vm, {tabDelete: true})
     }
 
+    vm.update = function() {
+      const updateUrl = `${url}/${vm.cadastroEscolas._id}`
+      $http.put(updateUrl, vm.cadastroEscolas).then(function(response) {
+        vm.refresh()
+        msgs.addSuccess('Operação realizada com sucesso!')
+      }).catch(function(response) {
+        msgs.addError(response.data.errors)
+      })
+    }
+
+    vm.delete = function () {
+      const deleteUrl = `${url}/${vm.cadastroEscolas._id}`
+      $http.delete(deleteUrl, vm.cadastroEscolas).then(function(response) {
+        vm.refresh()
+        msgs.addSuccess('Operação realizada com sucesso!')
+      }).catch(function(response) {
+        msgs.addError(response.data.errors)
+      })
+    }
+
     vm.refresh()
   }
 })()

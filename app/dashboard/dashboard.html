@@ -1,26 +1,22 @@
 <content-header titulo="Dashboard"></content-header>
 
-<section class="content" ng-controller="DashboardCtrl as dashboard">
-  <div class="col-xs-4">
-    <div class="small-box bg-green">
-      <div class="inner">
-        <h3>{{ dashboard.numeroEscolas }}</h3>
-        <p>Número de Escolas Cadastradas</p>
-      </div>
-      <div class="icon">
-        <i class="fa fa-graduation-cap"></i>
-      </div>
+<section class="content">
+  <div class="nav-tabs-custom" ng-controller="TurmasCtrl as turmasCtrl">
+    <ul class="nav nav-tabs">
+      <li ng-if="turmasCtrl.tabList" ng-class="{active: turmasCtrl.tabList}"><a href data-target="#tabList" data-toggle="tab"><i class="fa fa-bars"></i> Controle de Turmas</a></li>
+      <li ng-if="turmasCtrl.tabCreate" ng-class="{active: turmasCtrl.tabCreate}"><a href data-target="#tabCreate" data-toggle="tab"><i class="fa fa-plus"></i> Incluir Turma</a></li>
+      <li ng-if="turmasCtrl.tabUpdate" ng-class="{active: turmasCtrl.tabUpdate}"><a href data-target="#tabUpdate" data-toggle="tab"><i class="fa fa-pencil"></i> Alterar Turma</a></li>
+      <li ng-if="turmasCtrl.tabDelete" ng-class="{active: turmasCtrl.tabDelete}"><a href data-target="#tabDelete" data-toggle="tab"><i class="fa fa-trash-o"></i> Excluir Turma</a></li>
+      <li ng-if="turmasCtrl.tabListaTurmas" ng-class="{active: turmasCtrl.tabListaTurmas}"><a href data-target="#tabListaTurmas" data-toggle="tab"><i class="fa fa-eye"></i> Visualizar Turma</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane" id="tabList" ng-include="'dashboard/escolas.html'" ng-class="{active: turmasCtrl.tabList}" ng-if="turmasCtrl.tabList"></div>
+      <div class="tab-pane" id="tabCreate" ng-include="'dashboard/formTurmas.html'" ng-class="{active: turmasCtrl.tabCreate}" ng-if="turmasCtrl.tabCreate"></div>
+      <div class="tab-pane" id="tabUpdate" ng-include="'dashboard/formTurmas.html'" ng-class="{active: turmasCtrl.tabUpdate}" ng-if="turmasCtrl.tabUpdate"></div>
+      <div class="tab-pane" id="tabDelete" ng-include="'dashboard/formTurmas.html'" ng-class="{active: turmasCtrl.tabDelete}" ng-if="turmasCtrl.tabDelete"></div>
+      <div class="tab-pane" id="tabListaTurmas" ng-include="'dashboard/listaTurmas.html'" ng-class="{active: turmasCtrl.tabListaTurmas}" ng-if="turmasCtrl.tabListaTurmas"></div>
     </div>
-  </div>
-  <div class="col-xs-4">
-    <div class="small-box bg-blue">
-      <div class="inner">
-        <h3>{{ dashboard.numeroTurmas }}</h3>
-        <p>Total de Turmas Cadastradas</p>
-      </div>
-      <div class="icon">
-        <i class="fa fa-address-card"></i>
-      </div>
-    </div>
+
   </div>
 </section>

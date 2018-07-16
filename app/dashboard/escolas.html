@@ -1,0 +1,37 @@
+<div class="form">
+  <div class="box-body">
+        <select class="btn btn-default dropdown-toggle" ng-model="selected" ng-change="turmasCtrl.showTurmas(selected)">
+          <option value="">Selecione uma escola...</option>
+          <option ng-repeat="cadastroEscolas in turmasCtrl.escola"
+          value="{{ cadastroEscolas }}" >{{ cadastroEscolas.nome }}</option>
+        </select>
+
+  <div ng-if="turmasCtrl.qntTurmas">
+        <h4>Turmas Cadastradas: {{ turmasCtrl.NumeroTurmas }}</h4>
+        <button class="btn btn-primary" ng-click="turmasCtrl.showTabCreate(turmasCtrl.cadastroEscolas)"><i class="fa fa-plus"></i> Incluir Nova Turma</button>
+  </div>
+  <table class="table" ng-if="turmasCtrl.NumeroTurmas > 0">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Ensino</th>
+        <th>Ano</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="cadastroEscolas in turmasCtrl.cadastroEscolas.turmas">
+        <td>{{ cadastroEscolas.nome }}</td>
+        <td>{{ cadastroEscolas.ensino }}</td>
+        <td>{{ cadastroEscolas.ano }}</td>
+        <td class="table-actions">
+          <button class="btn btn-primary" ng-click="turmasCtrl.showTabListaTurmas(turmasCtrl.cadastroEscolas)"><i class="fa fa-eye"></i></button>
+          <button class="btn btn-warning" ng-click="turmasCtrl.showTabUpdate(turmasCtrl.cadastroEscolas)"><i class="fa fa-pencil"></i></button>
+          <button class="btn btn-danger" ng-click="turmasCtrl.showTabDelete(turmasCtrl.cadastroEscolas)"><i class="fa fa-trash-o"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>

@@ -1,12 +1,14 @@
 <div class="form">
   <div class="box-body">
-    <field id="nome" label="Nome" grid="12 6 4" placeholder="Informe o nome da escola" model="ceCtrl.cadastroEscolas.nome"></field>
-    <field id="endereco" label="Endereço" grid="12 6 4" placeholder="Informe o endereço da escola" model="ceCtrl.cadastroEscolas.endereco"></field>
+    <field id="nome" label="Nome" grid="12 6 4" placeholder="Informe o nome da escola"
+    model="ceCtrl.cadastroEscolas.nome" readonly="ceCtrl.tabDelete"></field>
+    <field id="endereco" label="Endereço" grid="12 6 4" placeholder="Informe o endereço da escola"
+    model="ceCtrl.cadastroEscolas.endereco" readonly="ceCtrl.tabDelete"></field>
   </div>
   <div class="box-footer">
     <button class="btn btn-primary" ng-click="ceCtrl.create()" ng-if="ceCtrl.tabCreate">Incluir</button>
-    <button class="btn btn-info" ng-if="ceCtrl.tabUpdate">Alterar</button>
-    <button class="btn btn-danger" ng-if="ceCtrl.tabDelete">Excluir</button>
+    <button class="btn btn-info" ng-click="ceCtrl.update()" ng-if="ceCtrl.tabUpdate">Alterar</button>
+    <button class="btn btn-danger" ng-click="ceCtrl.delete()" ng-if="ceCtrl.tabDelete">Excluir</button>
     <button class="btn btn-default" ng-click="ceCtrl.refresh()">Cancelar</button>
   </div>
 </div>

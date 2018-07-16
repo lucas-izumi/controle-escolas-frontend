@@ -1,0 +1,35 @@
+<div class="form">
+  <div class="box-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Ensino</th>
+          <th>Ano</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="cadastroEscolas in turmasCtrl.cadastroEscolas.turmas">
+          <td>{{ cadastroEscolas.nome }}</td>
+          <td>{{ cadastroEscolas.ensino }}</td>
+          <td>{{ cadastroEscolas.ano }}</td>
+        </tr>
+      </tbody>
+    </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Alunos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="cadastroEscolas in turmasCtrl.cadastroEscolas.turmas">
+        <td>{{ cadastroEscolas.nomealuno }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="box-footer">
+  <button class="btn btn-default" ng-click="turmasCtrl.refresh()">Voltar</button>
+</div>
+</div>

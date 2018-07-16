@@ -1,0 +1,16 @@
+<div class="form">
+  <div class="box-body">
+    <field id="nome" label="Nome da Turma" grid="12 6 4" placeholder="Informe o nome da turma"
+    model="turmasCtrl.cadastroEscolas.nome" readonly="turmasCtrl.tabDelete"></field>
+    <field id="ensino" label="Tipo de Ensino" grid="12 6 4" placeholder="Informe o tipo de ensino"
+    model="turmasCtrl.cadastroEscolas.ensino" readonly="turmasCtrl.tabDelete"></field>
+    <field id="ano" label="Ano da Turma" grid="12 6 4" placeholder="Informe o ano da turma"
+    model="turmasCtrl.cadastroEscolas.ano" readonly="turmasCtrl.tabDelete"></field>
+  </div>
+  <div class="box-footer">
+    <button class="btn btn-primary" ng-click="turmasCtrl.create()" ng-if="turmasCtrl.tabCreate">Incluir</button>
+    <button class="btn btn-info" ng-click="turmasCtrl.update()" ng-if="turmasCtrl.tabUpdate">Alterar</button>
+    <button class="btn btn-danger" ng-click="turmasCtrl.delete()" ng-if="turmasCtrl.tabDelete">Excluir</button>
+    <button class="btn btn-default" ng-click="turmasCtrl.refresh()">Cancelar</button>
+  </div>
+</div>
